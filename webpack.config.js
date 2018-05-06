@@ -17,6 +17,10 @@ const config= {
                 loader: 'vue-loader'
             },
             {
+                test: /\.jsx$/,
+                loader: 'babel-loader'
+            },
+            {
                 test:/\.css$/,
                 use:[
                     'style-loader',
@@ -28,6 +32,12 @@ const config= {
                 use:[
                     'style-loader',
                     'css-loader',
+                    {
+                        loader:'postcss-loader',
+                        options: {
+                            sourceMap: true
+                        }
+                    },
                     'stylus-loader'
                 ]
             },
@@ -36,7 +46,7 @@ const config= {
                 use:[{
                     loader: "url-loader",
                     options:{
-                        limit:1024,  // 可以直接把图片转换为base64插到js中。适用于几K左右的图片
+                        limit:102400,  // 可以直接把图片转换为base64插到js中。适用于几K左右的图片
                         name:'[name]-aaa.[ext]'   // 使用原来本身的名字。ext 为文件后缀名
                     }
                 }]
