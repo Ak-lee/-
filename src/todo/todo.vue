@@ -31,7 +31,6 @@ export default {
       return {
           todos:[],
           filter:'all',
-          completed:true,
       }
   },
   components:{
